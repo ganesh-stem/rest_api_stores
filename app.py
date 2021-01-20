@@ -27,16 +27,7 @@ api = Api(app)
 
 # This is a decorator that is going to affect the method below it 
 # and it's going to run that method before the first request into 
-# this app.  
-@app.before_first_request
-def create_tables():
-    # Before the first request, no matter what the request is, but 
-    # before the first request runs, it is going to run create_all()
-    # and that is going to create sqlite:///data.db and it is going 
-    # to create all of the tables in the file unless they exist already.
-    # This imports the table that it sees and it starts from the imported
-    # libraries. 
-    db.create_all()
+# this app.
 
 jwt = JWT(app, authenticate, identity)
 
