@@ -1,5 +1,5 @@
 # Session 5, Lecture 8. Retriving our item resourses from a database
-
+import os
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -11,7 +11,7 @@ from resources.store import Store, StoreList
 app = Flask(__name__)
 # This tells us that SQLALCHEMY DATABASE is going to live at the
 # root folder of our project.  
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 # In order to know when an object has changed but not been saved
 # to the database, the extension flask sqlalchemy was tracking 
 # every change that we made to the sqlalchemy session and that
